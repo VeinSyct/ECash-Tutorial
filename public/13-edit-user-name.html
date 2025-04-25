@@ -1,0 +1,110 @@
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover,shrink-to-fit=no">
+<style>
+    body {
+        margin: 42px 24px;
+    }
+    p {
+        font-size: 19px;
+    }
+    input {
+        font-size: 21px;
+    }
+</style>
+<title>Tutorials - Edit User Name</title>
+<h1>Tutorials - Edit User Name</h1>
+
+<link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
+
+<div id="api-404" hidden></div>
+
+<input class="account-name" onkeyup="if (event.keyCode === 13) changeName({ name: this.value })" placeholder="User name..."/>
+<br>
+<br>
+
+<button onclick="readAccount()">Read Information</button>
+<button onclick="changeName({ name: document.querySelector('.account-name').value })">Save User Name</button>
+<br>
+<br>
+
+<p>To change currency you must call the function below</p>
+
+SCRIPT
+<pre><code class="language-javascript">
+
+    function readAccount() {
+        _uz.api.contentWindow.postMessage({ action: "ecash-api-read-account" }, _uz.api.src);
+    };
+    
+    function changeName(d) {
+        _uz.api.contentWindow.postMessage({ action: "ecash-api-change-name", name: d.name }, _uz.api.src);
+    };
+    
+</code></pre>
+<br>
+
+<p>You mush have a post message listener to receive the selected currency.</p>
+
+SCRIPT
+<pre><code class="language-javascript">
+    window.addEventListener("message", windowEvent);
+
+    windowEvent function (e) {
+        if (e.type.match(/(message)/)) try {
+            _uz.session = !_uz.session ? e.data.session : _uz.session;
+            if (e.data.action && e.data.action.match(/(ecash-api)/)) {
+
+                if (e.data.action && e.data.action.match(/(response)/)) {
+                    
+                    if (data.action && data.action.match(/(read-account)/)) {
+                        document.querySelector("selected-currency").value = data.account.currency;
+                    };
+
+                };
+
+            };
+        } catch (error) {};
+    };
+
+</code></pre>
+<br>
+
+<p>Add html element to enter user name in your html page</p>
+
+HTML
+<pre><code class="language-javascript">
+    &#60;input class="account-name" onkeyup="if (event.keyCode === 13) changeName({ name: this.value })"/&#62;
+
+</code></pre>
+<br>
+
+<button onclick="history.back()">Go Back</button>
+<a href="14-send-information.html"><button>Next Topic</button></a>
+
+<script src="./assets/js/ecash.js"></script>
+<script>
+    document.getElementById("api-404").appendChild(_uz.api);
+
+    _uz.z = { qrScan: { arr: [], hashes: [] }, digit: { height: 12 }, slider: { single: {} } };
+    _uz.qr = {
+        length: 72,
+        delay: 128,
+        interval: 0,
+        hash: "9h65t34t31p7s&83*4392*81839e5c732a8181sh232%ic421o232n490s$321w23e59b$a472p921p"
+    };
+    
+    _uz.qrhash({ hash: _uz.qr.hash });
+</script>
+
+<script>
+    function readAccount() {
+        _uz.api.contentWindow.postMessage({ action: "ecash-api-read-account" }, _uz.api.src);
+    };
+
+    function changeName(d) {
+        _uz.api.contentWindow.postMessage({ action: "ecash-api-change-name", name: d.name }, _uz.api.src);
+    };
+
+    setTimeout(() => readAccount(), 214);
+</script>

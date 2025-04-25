@@ -1,0 +1,90 @@
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover,shrink-to-fit=no">
+<style>
+    body {
+        margin: 42px 24px;
+    }
+    p {
+        font-size: 19px;
+    }
+</style>
+
+<title>Tutorials - Balance Inquiry</title>
+<h1>Tutorials - Balance Inquiry</h1>
+
+<link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
+
+<p>To display your balance you must call the function below</p>
+
+<div id="api-404" hidden></div>
+
+<h1>[ <span class="ex-balance">...</span> ]</h1>
+
+<button onclick="document.querySelector('.ex-balance').innerHTML = '...'; setTimeout(()=> readBalance(), 1200)">Balance Inquiry</button>
+<br>
+<br>
+
+SCRIPT
+<pre><code class="language-javascript">
+    function readBalance() {
+        _uz.api.contentWindow.postMessage({
+            action: "ecash-api-read-balance"
+        }, _uz.api.src);
+    };
+    
+</code></pre>
+<br>
+
+<p>Add post message listener to receive the electronic cash balance.</p>
+
+SCRIPT
+<pre><code class="language-javascript">
+    window.addEventListener("message", windowEvent);
+
+    windowEvent function (e) {
+        if (e.type.match(/(message)/)) try {
+            _uz.session = !_uz.session ? e.data.session : _uz.session;
+            if (e.data.action && e.data.action.match(/(ecash-api)/)) {
+
+                if (e.data.action && e.data.action.match(/(response)/)) {
+                    
+                    if (data.action && data.action.match(/(read-balance)/)) {
+                        document.querySelector("balance-display").innerHTML = data.balance;
+                    };
+
+                };
+
+            };
+        } catch (error) {};
+    };
+
+</code></pre>
+<br>
+
+<p>Add html element to show the balance in your html page</p>
+
+HTML
+<pre><code class="language-javascript">
+    &#60;div id="balance-display"&#62;&#60;/div&#62;
+
+</code></pre>
+<br>
+
+<button onclick="history.back()">Go Back</button>
+<a href="12-change-currency.html"><button>Next Topic</button></a>
+
+<script src="./assets/js/ecash.js"></script>
+<script>
+    document.getElementById("api-404").appendChild(_uz.api);
+
+    _uz.z = { qrScan: { arr: [], hashes: [] }, digit: { height: 12 }, slider: { single: {} } };
+    _uz.qr = {
+        length: 72,
+        delay: 128,
+        interval: 0,
+        hash: "9h65t34t31p7s&83*4392*81839e5c732a8181sh232%ic421o232n490s$321w23e59b$a472p921p"
+    };
+    
+    _uz.qrhash({ hash: _uz.qr.hash });
+</script>
