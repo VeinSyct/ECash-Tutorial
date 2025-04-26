@@ -6,31 +6,40 @@
     p {
         font-size: 19px;
     }
+    #show-qr-cont {
+        color: white;
+    }
 </style>
 
 <title>Tutorials - Send Information</title>
 <h1>Tutorials - Send Information</h1>
+<h2>Topic 1.4</h2>
 
 <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
 
-<p>For a benefactor to transfer electronic cash to a beneficiary, they must first obtain the beneficiary's electronic cash address. In this tutorial, a QR code is used to send and receive this information via a device's screen and camera.</p>
+<p>For a benefactor to transfer electronic cash to a beneficiary, the beneficiary's electronic cash address mush be obtained by the benefactor. In this tutorial QR code is used to share the user information or the electronic cash transfers via the device's screen and camera.</p>
 
 <div id="api-404" hidden></div>
 
 <div id="show-qr-cont" style="padding: 12px; display: none; background: #000;">
+    <h3>Step 1</h3>
+    <p>Show the user's electronic cash address QR code to the benefactor to scan to obtain information for electronic cash transfer.</p>
     <div onclick="document.querySelector('.qr-cont').innerHTML = ''; document.getElementById('show-qr-cont').style.display = 'none'" style="color: white;">X</div>
     <div class="qr-cont"></div>
+    <br>
+    <span>3.1. </span>
+    <button onclick="location.href = '31-receive-electronic-cash.html'">Step 2 </button>
 </div>
 <br>
 
 <button onclick="hashAccount({})">Share Electronic Cash Address</button>
 <br>
 
-<p>To share information via QR code, you need to install a QR code generator library.</p>
+<p>Install the QR code creator library to display information on the device screen.</p>
 
-<p>In the repository folder look for the file <code class="language-javascript"> qr.creator.js </code> and add the line below in your html page.</p>
+<p>In the repository folder look for the file <code class="language-javascript">qr.creator.js</code> and add the lines below in the html page.</p>
 
 HTML
 <pre><code class="language-javascript">
@@ -44,7 +53,7 @@ HTML
 </code></pre>
 <br>
 
-<p>Call the function below to get your electronic cash address.</p>
+<p>Call the function below to request the user electronic cash address.</p>
 
 SCRIPT
 <pre><code class="language-javascript">
@@ -55,7 +64,7 @@ SCRIPT
 </code></pre>
 <br>
 
-<p>Add html element to show the QR code in your html page</p>
+<p>Add elements below to display the user's electronic cash QR code.</p>
 
 HTML
 <pre><code class="language-javascript">
@@ -66,7 +75,7 @@ HTML
 </code></pre>
 <br>
 
-<p>Add a post message listener to receive the electronic cash address.</p>
+<p>Add post message listener to get the returned user electronic cash address.</p>
 
 SCRIPT
 <pre><code class="language-javascript">
@@ -106,7 +115,7 @@ SCRIPT
 </code></pre>
 <br>
 
-<p>Add functions below to generate the received electronic cash address into the QR code creator.</p>
+<p>Add the functions below to create the user electronic cash address QR code.</p>
 
 SCRIPT
 <pre><code class="language-javascript">
@@ -137,7 +146,7 @@ SCRIPT
 </code></pre>
 <br>
 
-<p>The electronic cash address can also be shared through methods other than a QR code, such as via network or internet data sharing.</p>
+<p>The developer may use alternative methods other than a QR code, such as network or internet to share the user electronic cash address.</p>
 <br>
 
 <button onclick="history.back()">Go Back</button>
