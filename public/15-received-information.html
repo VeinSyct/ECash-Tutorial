@@ -9,12 +9,13 @@
 </style>
 <title>Tutorials - Receive Information</title>
 <h1>Tutorials - Receive Information</h1>
+<h2>Topic 1.5</h2>
 
 <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
 
-<p>For a beneficiary to receive electronic cash from a benefactor, they must first share the beneficiary's electronic cash address. In this tutorial, a QR code is used to send and receive this information via a device's screen and camera.</p>
+<p>For a beneficiary to receive electronic cash from a benefactor, the beneficiary's electronic cash address must be obtained by the benefactor. In this tutorial QR code is used to receive the user information or the electronic cash transfers via the device's screen and camera.</p>
 
 <div id="api-404" hidden></div>
 
@@ -25,6 +26,9 @@
     <br>
     <span>3.2. </span>
     <button onclick="location.href = '32-transfer-electronic-cash.html'">Step 2 </button>
+    <p>or</p>
+    <span>3.1. </span>
+    <button onclick="location.href = '31-receive-electronic-cash.html'">Step 3 </button>
 </div>
 
 <p><strong><span class="beneficiary-name"></span></strong></p>
@@ -33,9 +37,9 @@
 <button onclick="scanQRCodes({});">Scan QR</button>
 <br>
 
-<p>To receive information via QR code, you need to install a QR code reader library.</p>
+<p>Install the QR code reader library to capture QR code from the device camera.</p>
 
-<p>In the repository folder look for the file <code class="language-javascript"> qr.reader.js </code> and add the line below in your html page.</p>
+<p>In the repository folder look for the file <code class="language-javascript">qr.reader.js</code> and add the line below in the html page.</p>
 
 HTML
 <pre><code class="language-javascript">
@@ -44,7 +48,7 @@ HTML
 </code></pre>
 <br>
 
-<p>Call the function below to get your electronic cash address.</p>
+<p>Call the function below to scan QR codes.</p>
 
 SCRIPT
 <pre><code class="language-javascript">
@@ -55,7 +59,7 @@ SCRIPT
 </code></pre>
 <br>
 
-<p>Add html element to show the QR code in your html page</p>
+<p>Add element to display the QR code.</p>
 
 HTML
 <pre><code class="language-javascript">
@@ -67,7 +71,7 @@ HTML
 </code></pre>
 <br>
 
-<p>Add post message listener to receive the QR code information.</p>
+<p>Add post message listener to get the received QR code information.</p>
 
 SCRIPT
 <pre><code class="language-javascript">
@@ -114,7 +118,7 @@ SCRIPT
 </code></pre>
 <br>
 
-<p>Add functions below to assemble and decode the received QR code electronic cash information from the device camera.</p>
+<p>Add functions below to read the received QR code information from the device camera.</p>
 
 SCRIPT
 <pre><code class="language-javascript">
@@ -168,7 +172,7 @@ SCRIPT
 </code></pre>
 <br>
 
-<p>Electronic cash information can also be received through methods other than QR codes, such as data sharing over a network or the internet.</p>
+<p>The developer may use alternative methods other than a QR code, such as network or internet to receive the user electronic cash address.</p>
 <br>
 
 <button onclick="history.back()">Go Back</button>
