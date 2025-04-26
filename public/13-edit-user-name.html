@@ -12,6 +12,7 @@
 </style>
 <title>Tutorials - Edit User Name</title>
 <h1>Tutorials - Edit User Name</h1>
+<h2>Topic 1.3</h2>
 
 <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
@@ -23,20 +24,14 @@
 <br>
 <br>
 
-<button onclick="readAccount()">Read Information</button>
 <button onclick="changeName({ name: document.querySelector('.account-name').value })">Save User Name</button>
 <br>
 <br>
 
-<p>To change currency you must call the function below</p>
+<p>Call the function below to edit the user name.</p>
 
 SCRIPT
 <pre><code class="language-javascript">
-
-    function readAccount() {
-        _uz.api.contentWindow.postMessage({ action: "ecash-api-read-account" }, _uz.api.src);
-    };
-    
     function changeName(d) {
         _uz.api.contentWindow.postMessage({ action: "ecash-api-change-name", name: d.name }, _uz.api.src);
     };
@@ -44,7 +39,7 @@ SCRIPT
 </code></pre>
 <br>
 
-<p>You mush have a post message listener to receive the selected currency.</p>
+<p>Add post message listener to get the returned user name.</p>
 
 SCRIPT
 <pre><code class="language-javascript">
@@ -70,7 +65,7 @@ SCRIPT
 </code></pre>
 <br>
 
-<p>Add html element to enter user name in your html page</p>
+<p>Add element to enter the user name.</p>
 
 HTML
 <pre><code class="language-javascript">
