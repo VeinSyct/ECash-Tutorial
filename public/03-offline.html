@@ -10,13 +10,17 @@
 
 <title>Tutorials - Offline</title>
 <h1>Tutorials - Offline</h1>
+<h2>Topic 0.3</h2>
 
 <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
 
-<p>In the repository folder look for the file <code class="language-javascript"> offline.js </code> and the line below in your html page.</p>
+<p>Install the offline js file to allow remote operation even when the internet is not available.</p>
 
+<p>In the repository folder look for the file <code class="language-javascript">offline.js</code> and add the line below in your html page.</p>
+
+SCRIPT
 <pre><code class="language-javascript">
     let _o = {
         name: "webapp-v001",
@@ -53,9 +57,11 @@
     });
 
 </code></pre>
+<br>
 
-<p>In the <code class="language-javascript"> ecash.js </code> set the offline flag to !0 or true.</p>
+<p>In the <code class="language-javascript">ecash.js</code> set the offline flag to <code class="language-javascript">!0 or true</code>.</p>
 
+SCRIPT
 <pre><code class="language-javascript">
     _uz = { offline: !1 };
 
@@ -65,14 +71,29 @@
 
 </code></pre>
 
-<p>In the <code class="language-javascript"> ecash.js </code> you should see the offline function if not copy and paste the code into the <code class="language-javascript"> ecash.js </code> file.</p>
+<p>In the <code class="language-javascript">ecash.js</code> you should see the offline function if not copy and paste the code into the <code class="language-javascript">ecash.js</code> file or directly in the html page.</p>
 
+SCRIPT
 <pre><code class="language-javascript">
     if (navigator.onLine && _uz.offline && "serviceWorker" in navigator)
     navigator.serviceWorker
         .register("offline.js")
         .then((registration) => {})
         .catch((err) => {});
+
+</code></pre>
+
+<p>or</p>
+
+HTML
+<pre><code class="language-javascript">
+    &#60;script&#62;
+        if (navigator.onLine && _uz.offline && "serviceWorker" in navigator)
+        navigator.serviceWorker
+            .register("offline.js")
+            .then((registration) => {})
+            .catch((err) => {});
+    &#60;/script&#62;
 
 </code></pre>
 
