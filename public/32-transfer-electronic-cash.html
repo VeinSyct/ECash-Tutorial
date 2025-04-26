@@ -15,6 +15,7 @@
 </style>
 <title>Tutorials - Transfer Electronic Cash</title>
 <h1>Tutorials - Transfer Electronic Cash</h1>
+<h2>Topic 3.2</h2>
 
 <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
@@ -30,7 +31,7 @@
 
 <div id="step2-cont" style="display: none;">
     <h3>Step 2</h3>
-    <p>Check the beneficiary information and specify the currency and amount for transfer.</p>
+    <p>Check the beneficiary's information, specify the currency and amount to transfer.</p>
     <br>
     <p><span class="beneficiary-name"></span></p>
     <p><span class="beneficiary-number"></span></p>
@@ -51,17 +52,18 @@
 
 <div id="show-qr-cont" style="padding: 12px; display: none; background: #000;">
     <h3>Step 3</h3>
-    <p>Show the electronic cash QR to the beneficiary for him or her to scan.</p>
+    <p>Show the electronic cash transfer QR code to the beneficiary to scan until the transfer is completed.</p>
     <br>
     <div onclick="document.querySelector('.qr-cont').innerHTML = ''; document.getElementById('show-qr-cont').style.display = 'none'" style="color: white;">X</div>
     <div class="qr-cont"></div>
     <br>
     <h3>Step 4</h3>
-    <p>The beneficiary must scan the QR code to receive the electronic cash.</p>
+    <p>The beneficiary must scan the electronic cash transfer QR code to complete the transaction.</p>
+    <p>Allow the beneficiary to complete the scan until a dialog message promts the transfer is completed, failing to see the dialog message means the electronic cash transfer is not received.</p>
     <br>
 </div>
 
-<p>To change currency you must call the function below</p>
+<p>Call the function below to transfer electronic cash.</p>
 
 SCRIPT
 <pre><code class="language-javascript">
@@ -76,7 +78,7 @@ SCRIPT
 </code></pre>
 <br>
 
-<p>Add html elements to show the acquired beneficiary information in your html page</p>
+<p>Add elements below to display the beneficiary's information.</p>
 
 HTML
 <pre><code class="language-javascript">
@@ -86,7 +88,7 @@ HTML
 </code></pre>
 <br>
 
-<p>Add html elements to display balance and enter currency and amount for transfer in your html page</p>
+<p>Add elements below to enter the currency and the amount to transfer.</p>
 
 HTML
 <pre><code class="language-javascript">    
@@ -97,9 +99,9 @@ HTML
 </code></pre>
 <br>
 
-<p>Add QR functionality to share information via QR code, you need to install a QR code generator library.</p>
+<p>Install the QR code creator library to display the electronic cash transfer QR code on the device screen.</p>
 
-<p>In the repository folder look for the file <code class="language-javascript"> qr.creator.js </code> and add the line below in your html page.</p>
+<p>In the repository folder look for the file <code class="language-javascript">qr.creator.js</code> and add the lines below in the html page.</p>
 
 HTML
 <pre><code class="language-javascript">
@@ -125,7 +127,7 @@ HTML
 <br>
 
 <button onclick="history.back()">Go Back</button>
-<a href="index.html"><button>Home</button></a>
+<a href="41-tutorial-complated.html"><button>Next Topic</button></a>
 
 <script src="./assets/js/ecash.js"></script>
 
